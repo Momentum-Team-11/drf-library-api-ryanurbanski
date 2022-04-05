@@ -2,10 +2,23 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib import admin
-from .models import Movie, List, Category 
+from .models import Movie, List, Category, User
+
+from django.contrib.auth.admin import UserAdmin
+
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .models import User
+
+# class CustomUserAdmin(UserAdmin):
+#     add_form = CustomUserCreationForm
+#     form = CustomUserChangeForm
+#     model = User
+#     list_display = ["email", "username",]
 
 
 # admin.site.register(User)
 admin.site.register(Movie)
 admin.site.register(List)
 admin.site.register(Category)
+admin.site.register(User)
+# admin.site.register(CustomUserAdmin)
