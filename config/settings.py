@@ -14,7 +14,6 @@ from pathlib import Path
 import environ
 import os
 import django_on_heroku
-django_on_heroku.settings(locals())
 
 env = environ.Env(
     DEBUG=(bool, False)
@@ -142,8 +141,10 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 AUTH_USER_MODEL = 'movies.User'
 
-del DATABASES['default']['OPTIONS']['sslmode']
 
 STATICFILES_DIR = [
     BASE_DIR /'static',
 ]
+
+django_on_heroku.settings(locals())
+del DATABASES['default']['OPTIONS']['sslmode']
